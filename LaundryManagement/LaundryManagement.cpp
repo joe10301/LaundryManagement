@@ -13,6 +13,8 @@ void openAdmin() {
 	//create an array"studentDb[]" of these obeject and store 10 students 
 	// all the above should be done before the user chooses this option i.e should be stored somewhere 
 	// after the user chooses this option it should only display all the student details 
+	// add  and delete users 
+
 
 }
 
@@ -24,11 +26,11 @@ void openStudent() {
 	//enter n.o of clothes in "clothes"
 	//generate random token and store it in a queue "machine"
 	//calculate the time lets say each student 5 mins and store the time in a var "time"
+	// queue is empty stop the pop
 	//every 5 mins you have to pop a token from the queue and store it in a 2-d array "storage[][]"
 	// deduct one from the n.o of washes in "studentDb"  clothes > 25 deduct 2
 	//print the token n.o and the time to the student  and the n.o of washes left 
 	// once n.o of wash is -ve print "due" = rs 200 per load 
-
 }
 
 void openStaff() {
