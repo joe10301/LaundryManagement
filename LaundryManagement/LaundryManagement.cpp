@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void openAdmin() {
 	printf("\n\n\t\t\t\t\t\t\hello\n\n\n");
@@ -33,8 +34,9 @@ void openStudent() {
 	// once n.o of wash is -ve print "due" = rs 200 per load 
 }
 
-void openStaff() {
-	printf("\n\n\t\t\t\t\t\t\hello\n\n\n");
+void openStaff(int storage[20][20],int due) {
+	
+
 	//enter the token n.o( student should remember the token n.o assigned and he will tell you)
 	//check if the token is in "storage" 
 	// if not there check queue to see if the laundry was given 
@@ -44,12 +46,62 @@ void openStaff() {
 	// anything other than zero ask for money 
 	// once paid  make due=0
 	//give laundry
+	int token, row, column,flag=0;
+	system("CLS");
+	printf("\t\t\t\t Enter Your Token N.o\n");
+	std::cin >> token;
+	row = column = 0;
+	for (int i = 0; i < 20; i++)
+	{
+		for (int j = 0; j < 20; j++) {
+			if (storage[i][j] == token) {
+				flag = 1;
+				row = i;
+				column = j;
+			}
+			else
+			{
+				flag = 0;
+			}
+		}
+		if (flag == 0) {
+			printf("Laundry Not Given");
+		}
+		else
+		{
+			std::cout << "The Laundry is present is the " << row << "th Row and " << column << "th Column\n";
+			if (due != 0)
+			{
+				char c;
+				std::cout << "Student needss to pay " << due << "R.s\n";
+				std::cout << "Did STudent Pay??(y/n)\n";
+				std::cin >> c;
+
+				if (c=='y'||c=='Y')
+				{
+					due = 0;
+				}
+				else {
+					//store due 
+				}
+					
+				
+			}
+			std::cout << "Thankyou";
+		}
+	}
+
+
+
+	
 }
 
 
 int main()
 {
-	int ch;
+	int ch,due;
+	int storage[20][20];
+	due = 0;
 	printf("\n\n\n\n\n\t\t\t\t\t\t\tMenu:\n\n");
 	printf("\t\t---------------------------------------------------------------------------------------------\n\n");
 	while(1) {
@@ -70,7 +122,7 @@ int main()
 			openStudent();
 			break;
 		case 3:
-			openStaff();
+			openStaff(storage,due);
 			break;
 		case 4:
 			exit(0);
